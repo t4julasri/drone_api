@@ -34,7 +34,3 @@ trigger:
   event:
     - push
     - pull_request
-
-# Environment variables
-environment:
-  NODE_ENV: production
