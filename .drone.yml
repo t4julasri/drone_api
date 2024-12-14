@@ -1,0 +1,40 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  # Install dependencies
+  - name: install
+    image: node:16
+    commands:
+      - npm ci
+
+  # Run tests
+  - name: test
+    image: node:16
+    commands:
+      - npm run test:unit
+      - npm run test:e2e
+    depends_on:
+      - install
+
+  # Build for production
+  - name: build
+    image: node:16
+    commands:
+      - npm run build
+    depends_on:
+      - test
+
+trigger:
+  branch:
+    - main
+    - master
+    - develop
+  event:
+    - push
+    - pull_request
+
+# Environment variables
+environment:
+  NODE_ENV: production
