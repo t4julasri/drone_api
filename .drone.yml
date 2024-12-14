@@ -4,14 +4,17 @@ name: build
 
 steps:
   - name: install
-    image: node:16
+    image: node:20
     commands:
       - npm install
       - npm ci
 
   - name: hello
-    image: node:16
+    image: node:20
     commands:
+      # bug with ReferenceError: structuredClone is not defined
+      # Error: Cannot find module @rollup/rollup-darwin-arm64. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+      - npm i
       - echo "Hello World! Building Vue.js project...!"
       - npm run build
 
