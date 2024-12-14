@@ -18,6 +18,18 @@ steps:
       - echo "Hello World! Building Vue.js project...!"
       - npm run build
 
+  - name: build-and-push
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: tajulasri443/saas-landing-page
+      tags:
+        - latest
+      dockerfile: Dockerfile
+
 trigger:
   branch:
     - main
