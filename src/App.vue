@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#">
-          <span class="text-primary">Saas</span>Flow
+          <span class="text-primary">CI / CD</span>Saas
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
